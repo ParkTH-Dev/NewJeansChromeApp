@@ -1,0 +1,284 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(135deg, #ffb4d4, #f686b6, #f0cadf); */
+}
+
+.hidden {
+  display: none;
+}
+
+#greeting {
+  position: fixed;
+  font-size: 40px;
+  color: azure;
+  text-align: center;
+  top: 65px;
+}
+#weather {
+  top: 10px;
+  left: 10px;
+  position: fixed;
+  font-size: 30px;
+  color: azure;
+}
+#quotes {
+  bottom: 50px;
+  align-items: center;
+  position: fixed;
+  font-size: 18px;
+  color: azure;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+}
+button {
+  position: absolute;
+  margin-left: 10px;
+  top: 20%;
+  padding: 15px;
+  color: aliceblue;
+  background-color: black;
+  border: none;
+  border-radius: 50px;
+}
+#clock {
+  top: 20px;
+  right: 20px;
+  position: fixed;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: clockFloat 3s ease-in-out infinite;
+}
+
+#clock:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#clock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#clock:hover::before {
+  opacity: 1;
+}
+
+@keyframes clockFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 시계 숫자가 변경될 때의 애니메이션 */
+@keyframes numberChange {
+  0% {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.link {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  gap: 35px;
+  bottom: 160px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 15px 40px;
+  transition: all 0.4s ease;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.link a {
+  width: 50px;
+  height: 50px;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.link a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.link a:hover::after {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.link a img {
+  width: 50px;
+  height: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.link a:hover img {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
+}
+
+.link a:active img {
+  transform: scale(0.95);
+}
+
+#todo-form {
+  position: absolute;
+  bottom: 200px;
+  left: 50px;
+  width: 300px;
+  text-align: left;
+  z-index: 10;
+}
+
+#todo-form input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #333;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+#todo-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem;
+}
+
+#todo-form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.3);
+  transform: translateY(-2px);
+}
+
+#todo-list {
+  position: fixed;
+  bottom: 280px;
+  left: 50px;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#todo-list li {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  margin: 10px 0;
+  padding: 12px 25px;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: slideIn 0.3s ease forwards;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#todo-list li:hover {
+  background: rgba(0, 0, 0, 0.4);
+
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 스크롤바 스타일링 */
+#todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#todo-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+#todo-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+img {
+  position: fixed;
+  height: 110vh;
+  display: block;
+}

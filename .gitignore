@@ -1,0 +1,41 @@
+# 환경 변수 파일
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# API 키와 민감한 정보
+js/config.js
+
+# 의존성 디렉토리
+node_modules/
+
+# IDE 설정 파일
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 운영체제 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 빌드 디렉토리
+/dist
+/build
+
+# 캐시 디렉토리
+.cache/
+.temp/
+
+# 기타
+*.tmp
+*.bak
+*.swp

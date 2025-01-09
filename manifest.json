@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Custom New Tab",
+  "name": "New Tab Extension",
   "version": "1.0",
-  "description": "My custom new tab page.",
+  "description": "Custom New Tab Page",
   "chrome_url_overrides": {
     "newtab": "index.html"
-  }
+  },
+  "permissions": ["storage"]
 }
